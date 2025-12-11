@@ -207,6 +207,53 @@ const HomePage = () => {
         </div>
       </section>
 
+      <section className="py-20 bg-gradient-to-br from-accent-50 to-primary-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-accent-800 mb-6">
+              Conoce más sobre Obamacare
+            </h2>
+            <p className="text-xl text-accent-600 max-w-2xl mx-auto">
+              Te explicamos todo lo que necesitas saber sobre la renovación de tu seguro médico
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-2xl mx-auto"
+          >
+            <div className="bg-white rounded-2xl shadow-soft overflow-hidden">
+              <div className="w-full flex justify-center">
+                <video
+                  className="max-w-full max-h-[600px] w-auto h-auto"
+                  controls
+                  preload="metadata"
+                  poster="/images/portadaje.webp"
+                >
+                  <source src="/video/obamacare-renovacion-2025.mp4" type="video/mp4" />
+                  Tu navegador no soporta la reproducción de videos.
+                </video>
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-semibold text-accent-800 mb-2">
+                  Renovación de Seguros Obamacare 2025
+                </h3>
+                <p className="text-accent-600">
+                  Descubre los beneficios y el proceso de renovación paso a paso
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-20 bg-primary-50">
         <div className="container mx-auto px-4">
           <motion.div
