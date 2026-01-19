@@ -10,7 +10,7 @@ const Footer = () => {
     { href: "/faq", label: "FAQ" },
     { href: "/blog", label: "Blog" },
     { href: "/contacto", label: "Contáctanos" },
-    { href: "/terminos", label: "Política de Privacidad" },
+    { href: "/terminos", label: "Política de Privacidad", external: true },
   ];
 
   const socialLinks = [
@@ -109,13 +109,25 @@ const Footer = () => {
             <h4 className="font-semibold text-xl text-white">Enlaces rápidos</h4>
             <nav className="space-y-3">
               {menuItems.map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="block text-primary-200 hover:text-white transition-colors duration-300"
-                >
-                  {item.label}
-                </Link>
+                item.external ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-primary-200 hover:text-white transition-colors duration-300"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="block text-primary-200 hover:text-white transition-colors duration-300"
+                  >
+                    {item.label}
+                  </Link>
+                )
               ))}
             </nav>
 
@@ -149,12 +161,14 @@ const Footer = () => {
           <p className="text-primary-200 text-sm">
             © {currentYear} Asiste Health Care. Todos los derechos reservados.
           </p>
-          <Link
-            to="/terminos"
+          <a
+            href="/terminos"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-primary-300 hover:text-white text-sm mt-2 inline-block transition-colors duration-300"
           >
             Política de Privacidad y Tratamiento de Datos
-          </Link>
+          </a>
         </motion.div>
       </div>
     </footer>
