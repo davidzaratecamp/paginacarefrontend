@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, XCircle, Trash2, Star } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../../config/api';
 
 const AdminReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -25,7 +26,7 @@ const AdminReviews = () => {
   const fetchReviews = async () => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await axios.get(`http://localhost:5001/api/admin/reviews?status=${filter}`, {
+      const response = await axios.get(`${API_URL}/api/admin/reviews?status=${filter}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setReviews(response.data.reviews || []);
@@ -39,7 +40,7 @@ const AdminReviews = () => {
   const handleApprove = async (reviewId) => {
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.put(`http://localhost:5001/api/reviews/${reviewId}/approve`, {}, {
+      await axios.put(`${API_URL}/api/reviews/${reviewId}/approve`, {}, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -57,7 +58,7 @@ const AdminReviews = () => {
 
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.delete(`http://localhost:5001/api/reviews/${reviewId}`, {
+      await axios.delete(`${API_URL}/api/reviews/${reviewId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -79,7 +80,7 @@ const AdminReviews = () => {
     try {
       const token = localStorage.getItem('adminToken');
       const deletePromises = selectedReviews.map(id => 
-        axios.delete(`http://localhost:5001/api/reviews/${id}`, {
+        axios.delete(`${API_URL}/api/reviews/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         })
       );

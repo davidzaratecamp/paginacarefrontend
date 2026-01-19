@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Send, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../../config/api";
 
 const contactSchema = z.object({
   name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -35,7 +36,7 @@ const ContactForm = ({ className = "" }) => {
     setSubmitMessage("");
 
     try {
-      const response = await axios.post("http://localhost:5001/api/contact", data);
+      const response = await axios.post(`${API_URL}/api/contact`, data);
 
       if (response.status === 201) {
         setSubmitMessage("¡Gracias! Un asesor te contactará pronto.");

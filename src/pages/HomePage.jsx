@@ -4,6 +4,7 @@ import { ChevronDown, Heart, Users, Shield, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import ReviewForm from "../components/ui/ReviewForm.jsx";
 import axios from "axios";
+import { API_URL } from "../config/api";
 
 const HomePage = () => {
   const [showReviewForm, setShowReviewForm] = useState(false);
@@ -17,7 +18,7 @@ const HomePage = () => {
 
   const fetchApprovedReviews = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/api/reviews");
+      const response = await axios.get("${API_URL}/api/reviews");
       setDbReviews(response.data.reviews || []);
     } catch (error) {
       console.error("Error fetching reviews:", error);
@@ -29,7 +30,7 @@ const HomePage = () => {
     setSubmitMessage("");
 
     try {
-      const response = await axios.post("http://localhost:5001/api/reviews", reviewData);
+      const response = await axios.post("${API_URL}/api/reviews", reviewData);
 
       if (response.status === 201) {
         setSubmitMessage("¡Gracias! Tu reseña ha sido enviada y será revisada pronto.");

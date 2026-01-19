@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus, Edit, Trash2, Eye } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../../config/api';
 
 const AdminBlogs = () => {
   const [posts, setPosts] = useState([]);
@@ -22,7 +23,7 @@ const AdminBlogs = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/blog?limit=50');
+      const response = await axios.get('${API_URL}/api/blog?limit=50');
       setPosts(response.data.posts || []);
     } catch (error) {
       console.error('Error fetching posts:', error);
@@ -38,7 +39,7 @@ const AdminBlogs = () => {
 
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.delete(`http://localhost:5001/api/blog/${postId}`, {
+      await axios.delete(`${API_URL}/api/blog/${postId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

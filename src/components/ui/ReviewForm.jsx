@@ -5,6 +5,7 @@ import { z } from "zod";
 import { motion } from "framer-motion";
 import { Send, Loader2, Star } from "lucide-react";
 import axios from "axios";
+import { API_URL } from "../../config/api";
 
 const reviewSchema = z.object({
   name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -39,7 +40,7 @@ const ReviewForm = ({ className = "" }) => {
     setSubmitMessage("");
 
     try {
-      const response = await axios.post("http://localhost:5001/api/reviews", data);
+      const response = await axios.post(`${API_URL}/api/reviews`, data);
 
       if (response.status === 201) {
         setSubmitMessage("¡Gracias! Tu reseña será revisada antes de publicarse.");

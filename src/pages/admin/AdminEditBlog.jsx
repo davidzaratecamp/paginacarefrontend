@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import slugify from 'slugify';
 import axios from 'axios';
+import { API_URL } from '../../config/api';
 
 const blogSchema = z.object({
     title: z.string().min(1, 'El título es requerido').max(500, 'Título muy largo'),
@@ -70,7 +71,7 @@ const AdminEditBlog = () => {
     const loadPost = async () => {
         try {
             const token = localStorage.getItem('adminToken');
-            const response = await axios.get(`http://localhost:5001/api/blog/admin/${id}`, {
+            const response = await axios.get(`${API_URL}/api/blog/admin/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -136,7 +137,7 @@ const AdminEditBlog = () => {
                 metaDescription: data.metaDescription || data.excerpt,
             };
 
-            const response = await axios.put(`http://localhost:5001/api/blog/${id}`, postData, {
+            const response = await axios.put(`${API_URL}/api/blog/${id}`, postData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 

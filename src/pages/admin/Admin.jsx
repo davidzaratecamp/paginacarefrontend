@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Users, MessageSquare, FileText, Settings } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../../config/api';
 
 const Admin = () => {
   const [stats, setStats] = useState({
@@ -31,8 +32,8 @@ const Admin = () => {
 
       // Fetch multiple endpoints for dashboard stats
       const [contactsRes, reviewsRes] = await Promise.all([
-        axios.get('http://localhost:5001/api/admin/contacts?limit=1', { headers }),
-        axios.get('http://localhost:5001/api/admin/reviews?status=pending&limit=1', { headers })
+        axios.get('${API_URL}/api/admin/contacts?limit=1', { headers }),
+        axios.get('${API_URL}/api/admin/reviews?status=pending&limit=1', { headers })
       ]);
 
       setStats({

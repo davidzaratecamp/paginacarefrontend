@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import slugify from 'slugify';
 import axios from 'axios';
+import { API_URL } from '../../config/api';
 
 const blogSchema = z.object({
   title: z.string().min(1, 'El título es requerido').max(500, 'Título muy largo'),
@@ -96,7 +97,7 @@ const AdminNewBlog = () => {
         metaDescription: data.metaDescription || data.excerpt,
       };
 
-      const response = await axios.post('http://localhost:5001/api/blog', postData, {
+      const response = await axios.post('${API_URL}/api/blog', postData, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

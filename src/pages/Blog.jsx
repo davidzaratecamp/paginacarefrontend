@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, User, ArrowRight, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config/api";
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -17,7 +18,7 @@ const Blog = () => {
   const loadPosts = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5001/api/blog?limit=50");
+      const response = await axios.get(`${API_URL}/api/blog?limit=50`);
       if (response.status === 200) {
         const data = response.data;
         setPosts(data.posts);

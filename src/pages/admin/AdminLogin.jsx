@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { motion } from 'framer-motion';
 import { LogIn, Loader2 } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../../config/api';
 
 const loginSchema = z.object({
   username: z.string().min(1, 'El usuario es requerido'),
@@ -28,7 +29,7 @@ const AdminLogin = () => {
     setLoginError('');
 
     try {
-      const response = await axios.post('http://localhost:5001/api/admin/auth', data);
+      const response = await axios.post(`${API_URL}/api/admin/auth`, data);
       
       // Store token in localStorage
       localStorage.setItem('adminToken', response.data.token);

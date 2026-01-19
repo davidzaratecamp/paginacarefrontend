@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Trash2, Phone, Mail, MapPin } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../../config/api';
 
 const AdminForms = () => {
   const [contacts, setContacts] = useState([]);
@@ -24,7 +25,7 @@ const AdminForms = () => {
   const fetchContacts = async () => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await axios.get('http://localhost:5001/api/admin/contacts', {
+      const response = await axios.get('${API_URL}/api/admin/contacts', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setContacts(response.data.contacts || []);
@@ -42,7 +43,7 @@ const AdminForms = () => {
 
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.delete(`http://localhost:5001/api/admin/contacts/${contactId}`, {
+      await axios.delete(`${API_URL}/api/admin/contacts/${contactId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -64,7 +65,7 @@ const AdminForms = () => {
     try {
       const token = localStorage.getItem('adminToken');
       const deletePromises = selectedContacts.map(id => 
-        axios.delete(`http://localhost:5001/api/admin/contacts/${id}`, {
+        axios.delete(`${API_URL}/api/admin/contacts/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         })
       );

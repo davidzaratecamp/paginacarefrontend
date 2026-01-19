@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, User, ArrowLeft, Eye, Tag } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { API_URL } from "../config/api";
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -21,7 +22,7 @@ export default function BlogPost() {
   const loadPost = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:5001/api/blog/${slug}`);
+      const response = await axios.get(`${API_URL}/api/blog/${slug}`);
       if (response.status === 200) {
         const data = response.data;
         setPost(data.post);
