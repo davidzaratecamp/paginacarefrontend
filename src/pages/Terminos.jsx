@@ -51,7 +51,7 @@ const Terminos = () => {
                   </p>
                   <p className="text-accent-700 flex items-center gap-2">
                     <Phone size={18} className="text-primary-600" />
-                    <strong>Teléfono:</strong> 305 747 8161
+                    <strong>Teléfono:</strong> (786) 533-0345
                   </p>
                 </div>
               </section>
@@ -148,7 +148,7 @@ const Terminos = () => {
                   </p>
                   <p className="text-accent-700 flex items-center gap-2">
                     <Phone size={18} className="text-secondary-600" />
-                    <strong>Teléfono:</strong> 305 747 8161
+                    <strong>Teléfono:</strong> (786) 533-0345
                   </p>
                   <p className="text-accent-700 flex items-center gap-2">
                     <MapPin size={18} className="text-secondary-600" />
