@@ -47,7 +47,7 @@ const Terminos = () => {
                   </p>
                   <p className="text-accent-700 flex items-center gap-2">
                     <Mail size={18} className="text-primary-600" />
-                    <strong>Correo:</strong> vanessa.leal@asisteing.com
+                    <strong>Correo:</strong> info@asistehealthcare.com
                   </p>
                   <p className="text-accent-700 flex items-center gap-2">
                     <Phone size={18} className="text-primary-600" />
@@ -144,7 +144,7 @@ const Terminos = () => {
                 <div className="bg-secondary-50 rounded-xl p-6 space-y-3">
                   <p className="text-accent-700 flex items-center gap-2">
                     <Mail size={18} className="text-secondary-600" />
-                    <strong>Correo:</strong> vanessa.leal@asisteing.com
+                    <strong>Correo:</strong> info@asistehealthcare.com
                   </p>
                   <p className="text-accent-700 flex items-center gap-2">
                     <Phone size={18} className="text-secondary-600" />
