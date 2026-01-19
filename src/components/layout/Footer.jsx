@@ -10,6 +10,7 @@ const Footer = () => {
     { href: "/faq", label: "FAQ" },
     { href: "/blog", label: "Blog" },
     { href: "/contacto", label: "Contáctanos" },
+    { href: "/terminos", label: "Política de Privacidad" },
   ];
 
   const socialLinks = [
@@ -148,6 +149,12 @@ const Footer = () => {
           <p className="text-primary-200 text-sm">
             © {currentYear} Asiste Health Care. Todos los derechos reservados.
           </p>
+          <Link
+            to="/terminos"
+            className="text-primary-300 hover:text-white text-sm mt-2 inline-block transition-colors duration-300"
+          >
+            Política de Privacidad y Tratamiento de Datos
+          </Link>
         </motion.div>
       </div>
     </footer>

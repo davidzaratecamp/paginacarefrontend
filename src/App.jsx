@@ -8,6 +8,7 @@ import FAQ from './pages/FAQ'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Contacto from './pages/Contacto'
+import Terminos from './pages/Terminos'
 import Admin from './pages/admin/Admin'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminBlogs from './pages/admin/AdminBlogs'
@@ -33,6 +34,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/terminos" element={<Terminos />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin/blog" element={<AdminBlogs />} />

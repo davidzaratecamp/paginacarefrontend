@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import { Send, Loader2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const contactSchema = z.object({
@@ -11,6 +12,9 @@ const contactSchema = z.object({
   phone: z.string().min(10, "El teléfono debe tener al menos 10 dígitos"),
   email: z.string().email("Correo electrónico inválido"),
   postalCode: z.string().regex(/^\d{5}$/, "Código postal debe tener 5 dígitos"),
+  acceptTerms: z.boolean().refine((val) => val === true, {
+    message: "Debes aceptar la política de privacidad para continuar",
+  }),
 });
 
 const ContactForm = ({ className = "" }) => {
@@ -106,6 +110,29 @@ const ContactForm = ({ className = "" }) => {
           )}
         </div>
 
+        <div className="flex items-start space-x-3">
+          <input
+            {...register("acceptTerms")}
+            type="checkbox"
+            id="acceptTerms"
+            className="mt-1 w-4 h-4 text-primary-600 border-accent-300 rounded focus:ring-primary-500 cursor-pointer"
+          />
+          <label htmlFor="acceptTerms" className="text-sm text-accent-600 cursor-pointer">
+            Acepto la{" "}
+            <Link
+              to="/terminos"
+              target="_blank"
+              className="text-primary-600 hover:text-primary-700 underline"
+            >
+              Política de Privacidad y Tratamiento de Datos
+            </Link>
+            . Autorizo que mis datos sean utilizados para contactarme y brindarme información sobre seguros médicos.
+          </label>
+        </div>
+        {errors.acceptTerms && (
+          <p className="text-secondary-600 text-sm -mt-2">{errors.acceptTerms.message}</p>
+        )}
+
         <motion.button
           type="submit"
           disabled={isSubmitting}
@@ -139,7 +166,7 @@ const ContactForm = ({ className = "" }) => {
       </form>
 
       <p className="text-xs text-accent-500 mt-4 text-center">
-        * Campos obligatorios. Tu información está protegida y no será compartida.
+        * Campos obligatorios
       </p>
     </motion.div>
   );
