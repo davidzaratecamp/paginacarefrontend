@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Mail, Phone, MapPin } from "lucide-react";
+import { Shield, Mail, Phone } from "lucide-react";
 
 const Terminos = () => {
   return (
@@ -39,11 +39,7 @@ const Terminos = () => {
                 </h2>
                 <div className="bg-primary-50 rounded-xl p-6 space-y-3">
                   <p className="text-accent-700">
-                    <strong>Razón Social:</strong> ASISTE ING S.A.S.
-                  </p>
-                  <p className="text-accent-700 flex items-center gap-2">
-                    <MapPin size={18} className="text-primary-600" />
-                    <strong>Dirección:</strong> Carrera 42 Bis 17A – 53, Oficina 402, Bogotá
+                    <strong>Razón Social:</strong> Asiste Health Care
                   </p>
                   <p className="text-accent-700 flex items-center gap-2">
                     <Mail size={18} className="text-primary-600" />
@@ -62,7 +58,7 @@ const Terminos = () => {
                 </h2>
                 <p className="text-accent-700 mb-4">
                   Al proporcionar sus datos personales a través de nuestros formularios de contacto,
-                  usted autoriza a ASISTE ING S.A.S. (operando como Asiste Health Care) para:
+                  usted autoriza a Asiste Health Care para:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-accent-700 ml-4">
                   <li>Contactarlo para brindarle información sobre seguros médicos Obamacare (ACA)</li>
@@ -115,7 +111,7 @@ const Terminos = () => {
                   5. Seguridad de la Información
                 </h2>
                 <p className="text-accent-700">
-                  ASISTE ING S.A.S. implementa medidas de seguridad técnicas, administrativas y
+                  Asiste Health Care implementa medidas de seguridad técnicas, administrativas y
                   físicas para proteger sus datos personales contra acceso no autorizado, pérdida,
                   alteración o destrucción. Sus datos son almacenados en servidores seguros y
                   solo personal autorizado tiene acceso a ellos.
@@ -150,19 +146,11 @@ const Terminos = () => {
                     <Phone size={18} className="text-secondary-600" />
                     <strong>Teléfono:</strong> (786) 533-0345
                   </p>
-                  <p className="text-accent-700 flex items-center gap-2">
-                    <MapPin size={18} className="text-secondary-600" />
-                    <strong>Dirección:</strong> Carrera 42 Bis 17A – 53, Oficina 402, Bogotá
-                  </p>
                 </div>
               </section>
 
               <section className="border-t border-accent-200 pt-8">
                 <p className="text-accent-500 text-sm text-center">
-                  Para más información sobre nuestras políticas completas de tratamiento de datos,
-                  puede visitar <a href="https://www.asisteing.com" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">www.asisteing.com</a>
-                </p>
-                <p className="text-accent-500 text-sm text-center mt-2">
                   Última actualización: Enero 2025
                 </p>
               </section>
