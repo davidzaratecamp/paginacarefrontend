@@ -25,7 +25,7 @@ const AdminForms = () => {
   const fetchContacts = async () => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await axios.get('${API_URL}/api/admin/contacts', {
+      const response = await axios.get(`${API_URL}/api/admin/contacts`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setContacts(response.data.contacts || []);

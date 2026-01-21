@@ -97,7 +97,7 @@ const AdminNewBlog = () => {
         metaDescription: data.metaDescription || data.excerpt,
       };
 
-      const response = await axios.post('${API_URL}/api/blog', postData, {
+      const response = await axios.post(`${API_URL}/api/blog`, postData, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

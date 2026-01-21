@@ -23,7 +23,7 @@ const AdminBlogs = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await axios.get('${API_URL}/api/blog?limit=50');
+      const response = await axios.get(`${API_URL}/api/blog?limit=50`);
       setPosts(response.data.posts || []);
     } catch (error) {
       console.error('Error fetching posts:', error);

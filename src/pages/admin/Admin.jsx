@@ -32,8 +32,8 @@ const Admin = () => {
 
       // Fetch multiple endpoints for dashboard stats
       const [contactsRes, reviewsRes] = await Promise.all([
-        axios.get('${API_URL}/api/admin/contacts?limit=1', { headers }),
-        axios.get('${API_URL}/api/admin/reviews?status=pending&limit=1', { headers })
+        axios.get(`${API_URL}/api/admin/contacts?limit=1`, { headers }),
+        axios.get(`${API_URL}/api/admin/reviews?status=pending&limit=1`, { headers })
       ]);
 
       setStats({
