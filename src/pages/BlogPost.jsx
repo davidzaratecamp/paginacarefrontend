@@ -132,7 +132,7 @@ export default function BlogPost() {
             <div className="flex flex-wrap items-center space-x-6 text-accent-600">
               <div className="flex items-center space-x-2">
                 <User size={16} />
-                <span>{post.author.name}</span>
+                <span>{post.authorName}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Calendar size={16} />
@@ -259,7 +259,7 @@ export default function BlogPost() {
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-2 text-sm text-accent-500">
                             <User size={14} />
-                            <span>{relatedPost.author.name}</span>
+                            <span>{relatedPost.authorName}</span>
                           </div>
 
                           <Link
